@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Cifra de César</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <div class="CifraCesar">
+        <h1>Cifra de César</h1>
+
+        <form>
+            <label for="texto">
+                Texto: <input type="text" id="texto">
+            </label>
+            <label for="deslocamento">
+                Deslocamento (1-25): <input type="text" id="deslocamento">
+            </label>
+            <br><br><button type="button" id="encriptografar" onclick="CesarCipherEn()">Encriptografar</button>
+
+            <button type="button" id="descriptografar" onclick="CesarCipherDes()">Descriptografar</button>
+
+            <p> Texto Final: <b id="texto_final"></b></p>
+
+            
+        </form>
+    </div>
+
+    <script>
+
+        var alfabeto = [
+            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
+            'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+        ];
+
+
+        function CesarCipherEn() {
+            document.getElementById("texto_final").innerHTML = ""
+            let texto = document.getElementById("texto").value;
+            let deslocamento = document.getElementById("deslocamento").value;
+            
+            for (i = 0; i < texto.length; i++) {
+                for (x = 0; x < alfabeto.length; x++) {
+                    if (texto[i] == " ") {
+                        document.getElementById("texto_final").innerHTML += " "
+                    }
+                    if (texto[i] == alfabeto[x]) {
+                        // Circulando o array caso o indice for maior que o alfabeto
+                        // calculando o resto da divisão inteira.
+                        let posicao = (x + parseInt(deslocamento)) % alfabeto.length;                        
+                        let letra_encriptografada = alfabeto[posicao];
+                        if (letra_encriptografada == undefined) {
+                            document.getElementById("texto_final").innerHTML = "Deslocamento Inválido!"
+                        }
+                        else {
+                            document.getElementById("texto_final").innerHTML += letra_encriptografada
+                            console.log(letra_encriptografada)
+                        }
+                    }
+                }
+            }
+        }
+
+        function CesarCipherDes() {
+            document.getElementById("texto_final").innerHTML = ""
+            let texto = document.getElementById("texto").value;
+            let deslocamento = document.getElementById("deslocamento").value;
+            
+            for (let i = 0; i < texto.length; i++) {
+                for (let x = 0; x < alfabeto.length; x++) {
+                    if (texto[i] == " ") {
+                        document.getElementById("texto_final").innerHTML += " "
+                    }
+                    if (texto[i] == alfabeto[x]) {
+                        // Ao invés de somar, vamos subtrair e somar com o comprimento do alfabeto
+                        // para não dar número negativo, e conseguir deslocar a posição para esquerda
+                        let posicao = (x - parseInt(deslocamento) + alfabeto.length) % alfabeto.length;
+                        let letra_encriptografada = alfabeto[posicao];
+                        if (letra_encriptografada == undefined) {
+                            document.getElementById("texto_final").innerHTML = "Deslocamento Inválido!"
+                        }
+                        else {
+                            document.getElementById("texto_final").innerHTML += letra_encriptografada
+                        }
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

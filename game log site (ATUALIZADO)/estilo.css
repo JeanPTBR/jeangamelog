@@ -1,0 +1,41 @@
+
+.test{
+	color: darkorange;
+	font-size: 20px;
+}
+#test2{
+	color: purple;
+	font-size: 40px;
+}
+a {
+	text-decoration: none;
+}
+a:hover {
+	color: red;
+	font-size: 120%;
+	transition: 1s;
+}
+img {
+	transition: 1s;
+}
+
+img:hover {
+	width: 80%;
+	transition: 1s;
+}
+
+iframe {
+	transition: 1s;
+}
+iframe:hover {
+	width: 70%;
+	transition: 1s;
+}
+
+video {
+	transition: 1s;
+}
+video:hover {
+	width: 25%;
+	transition: 1s;
+}
