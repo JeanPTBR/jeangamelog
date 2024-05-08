@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="animacoes.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Workbench:BLED,SCAN@56,25&display=swap" rel="stylesheet"> 
+     
+    <script src="programacao.js" defer></script>
+    <title>Calculadora</title>
+
+</head>
+<body bgcolor="#111b21">
+
+<div class="container">
+    <img src="capa.png" alt="Imagem de Fundo" class="imagem-fundo">
+    <div class="digitos-sobre-imagem">
+        <table>
+            <tr> <!-- Linha 1 da Tabela -->
+                <td style="position: relative; left: 5px; top: 4px;"><img id="digito_7" name="digito_7" class="digitos" src="digito7.png" style="width: 93px !important;" onclick="CliqueNumero('digito_7')" onmouseover="aumentarImgDigitos('digito_7')" onmouseout="reduzirImgDigito('digito_7')"></td>
+                <td style="position: absolute; left: 103px; top: 6px;"><img id="digito_8" name="digito_8" class="digitos" src="digito8.png" style="width: 93px !important;" onclick="CliqueNumero('digito_8')" onmouseover="aumentarImgDigitos('digito_8')" onmouseout="reduzirImgDigito('digito_8')"></td> <!-- Table Data (Dados de cada linha) -->
+                <td style="position: absolute; left: 199px; top: 5px;"><img id="digito_9" name="digito_9" class="digitos" src="digito9.png" style="width: 93px !important;" onclick="CliqueNumero('digito_9')" onmouseover="aumentarImgDigitos('digito_9')" onmouseout="reduzirImgDigito('digito_9')"></td>
+                <td style="position: absolute; left: 293px; top: 4px;"><img id="digito_divisao" name="digito_/" class="digitos" src="digitodivisao.png" style="width: 96px !important;" onclick="Operacoes('digito_divisao')" onmouseover="aumentarImgDigitos('digito_divisao')" onmouseout="reduzirImgDigito('digito_divisao')"></td>
+                <td style="position: relative; right: 70px; bottom: 107px;"> <font color="#336699" id="OutPut" class="OutPut" size="7"></td> <!-- Aqui é onde vai sair o resultado dos números -->
+            </tr>
+            <tr> <!-- Linha 2 da Tabela -->
+                <td style="position: relative; left: 6px; top: 6.5px"><img id="digito_4" name="digito_4" class="digitos" src="digito4.png" style="width: 93px !important;" onclick="CliqueNumero('digito_4')" onmouseover="aumentarImgDigitos('digito_4')" onmouseout="reduzirImgDigito('digito_4')"></td>
+                <td style="position: absolute; left: 103.2px; top: 95px;"><img id="digito_5" name="digito_5" class="digitos" src="digito5.png" style="width: 93px !important;" onclick="CliqueNumero('digito_5')" onmouseover="aumentarImgDigitos('digito_5')" onmouseout="reduzirImgDigito('digito_5')"></td> <!-- Table Data (Dados de cada linha) -->
+                <td style="position: absolute; left: 199.5px; top: 94px;"><img id="digito_6" name="digito_6" class="digitos" src="digito6.png" style="width: 93px !important;" onclick="CliqueNumero('digito_6')" onmouseover="aumentarImgDigitos('digito_6')" onmouseout="reduzirImgDigito('digito_6')"></td>
+                <td style="position: absolute; left: 295px; top: 94px;"><img id="digito_multiplicacao" name="digito_X" class="digitos" src="digitomultiplicacao.png" style="width: 93px !important;" onclick="Operacoes('digito_multiplicacao')" onmouseover="aumentarImgDigitos('digito_multiplicacao')" onmouseout="reduzirImgDigito('digito_multiplicacao')"></td>
+            </tr>
+            <tr> <!-- Linha 3 da Tabela -->
+                <td style="position: relative; left: 6px; bottom: -6.6px;"><img id="digito_1" name="digito_1" class="digitos" src="digito1.png" style="width: 93px !important;" onclick="CliqueNumero('digito_1')" onmouseover="aumentarImgDigitos('digito_1')" onmouseout="reduzirImgDigito('digito_1')"></td>
+                <td style="position: absolute; left: 104px; bottom: 84px;"><img id="digito_2" name="digito_2" class="digitos" src="digito2.png" style="width: 93px !important;" onclick="CliqueNumero('digito_2')" onmouseover="aumentarImgDigitos('digito_2')" onmouseout="reduzirImgDigito('digito_2')"></td> <!-- Table Data (Dados de cada linha) -->
+                <td style="position: absolute; left: 200px; bottom: 85px"><img id="digito_3" name="digito_3" class="digitos" src="digito3.png" style="width: 93px !important;" onclick="CliqueNumero('digito_3')" onmouseover="aumentarImgDigitos('digito_3')" onmouseout="reduzirImgDigito('digito_3')"></td>
+                <td style="position: absolute; left: 296px; bottom: 85px;"><img id="digito_menos" name="digito_-" class="digitos" src="digitomenos.png" style="width: 93px !important;" onclick="Operacoes('digito_menos')" onmouseover="aumentarImgDigitos('digito_menos')" onmouseout="reduzirImgDigito('digito_menos')"></td>
+            </tr>
+            <tr> <!-- Linha 4 da Tabela -->
+                <td style="position: relative; left: 6px; bottom: -8px;"><img id="digito_0" name="digito_0" class="digitos" src="digito0.png" style="width: 93px !important;" onclick="CliqueNumero('digito_0')" onmouseover="aumentarImgDigitos('digito_0')" onmouseout="reduzirImgDigito('digito_0')"></td>
+                <td style="position: absolute; left: 104.5px; bottom: -4.8px;"><img id="digito_Vazio" name="digitoVazio" class="digitos" src="digitovazio.png" style="width: 93px !important;" onclick="LimparDigitos()" onmouseover="aumentarImgDigitos('digito_Vazio')" onmouseout="reduzirImgDigito('digito_Vazio')"></td>
+                <td style="position: absolute; left: 200px; bottom: -4px;"><img id="digito_igual" name="digito_=" class="digitos" src="digitoigual.png" style="width: 93px !important;" onclick="ResultadoOperacao()" onmouseover="aumentarImgDigitos('digito_igual')" onmouseout="reduzirImgDigito('digito_igual')"></td>
+                <td style="position: absolute; left: 296px; bottom: -4px;"><img id="digito_mais" name="digito_+" class="digitos" src="digitomais.png" style="width: 93px !important;" onclick="Operacoes('digito_mais')" onmouseover="aumentarImgDigitos('digito_mais')" onmouseout="reduzirImgDigito('digito_mais')"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
